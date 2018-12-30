@@ -1,0 +1,3 @@
+<div *ngIf="!!currentView">
+    <ng-content *ngTemplateOutlet="currentView; context: {$implicit: wizardContext[step], backStepHandle: backStepHandle, nextStepHandle: nextStepHandle, finishStepHandle: finishStepHandle, calculateNextStepHandle: calculateNextStepHandle}"></ng-content>
+</div>

@@ -1,0 +1,21 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Shipping Label Maker Login</h3>
+    <form [formGroup]="form" method="post" class="login-form" #f="ngForm">
+        <div class="form-group">
+            <label>Account Username</label>
+            <input type="text" autofocus placeholder="Account Username" name="username" formControlName="username" class="form-control" required>
+            <div *ngIf="f.username?.errors.required">Username is required</div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Password" name="password" formControlName="password" class="form-control" required>
+        </div>
+
+        <input type="button" [disabled]="f.invalid" name="submit" placeholder="Log in" class="btn btn-primary" (click)="login()" value="Login">
+
+        <span *ngIf="hasErrors" class="error">
+            User login failed...
+        </span>
+    </form>
+</div>
