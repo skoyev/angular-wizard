@@ -39,7 +39,7 @@
                             <input class="form-control" ng-value="from" type="text" name="dataFrom" [ngModel]="step_content.dataFrom" style="display:none" #name="ngModel">
                         </div>
                     </form>             
-                    <button class="btn btn-success" [disabled]="f.invalid" (click)="nextStepHandle(f.value)">Next</button>
+                    <button class="btn btn-primary" [disabled]="f.invalid" (click)="nextStepHandle(f.value)">Next</button>
                 </div>
             </div>
         </ng-template>
@@ -51,27 +51,27 @@
                         <h5>{{step_content.title}}</h5> 
                         <form #f="ngForm">
                             <div class="form-group">
-                                    <label class="form-label" for="name">Full Name:</label>
-                                    <input class="form-input" [ngClass]="{'is-error': name.invalid && (name.dirty || name.touched)}" type="text" id="name" name="name" [ngModel]="step_content.name" #name="ngModel" placeholder="Name" required>
+                                    <label for="name">Full Name:</label>
+                                    <input class="form-control" [ngClass]="{'is-error': name.invalid && (name.dirty || name.touched)}" type="text" id="name" name="name" [ngModel]="step_content.name" #name="ngModel" placeholder="Name" required>
             
-                                    <label class="form-label" for="name">Street:</label>
-                                    <input class="form-input" [ngClass]="{'is-error': street.invalid && (street.dirty || street.touched)}" type="text" id="street" name="street" [ngModel]="step_content.street" #street="ngModel" placeholder="Street" required>
+                                    <label for="name">Street:</label>
+                                    <input class="form-control" [ngClass]="{'is-error': street.invalid && (street.dirty || street.touched)}" type="text" id="street" name="street" [ngModel]="step_content.street" #street="ngModel" placeholder="Street" required>
             
-                                    <label class="form-label" for="city">City</label>
-                                    <input class="form-input" [ngClass]="{'is-error': city.invalid && (city.dirty || city.touched)}" type="text" id="city" name="city" [ngModel]="step_content.city" #city="ngModel" placeholder="City" required>
+                                    <label for="city">City</label>
+                                    <input class="form-control" [ngClass]="{'is-error': city.invalid && (city.dirty || city.touched)}" type="text" id="city" name="city" [ngModel]="step_content.city" #city="ngModel" placeholder="City" required>
             
-                                    <label class="form-label" for="state">State</label>
-                                    <input class="form-input" [ngClass]="{'is-error': state.invalid && (state.dirty || state.touched)}" type="text" id="state" name="state" [ngModel]="step_content.state" #state="ngModel" placeholder="State" required>
+                                    <label for="state">State</label>
+                                    <input class="form-control" [ngClass]="{'is-error': state.invalid && (state.dirty || state.touched)}" type="text" id="state" name="state" [ngModel]="step_content.state" #state="ngModel" placeholder="State" required>
             
-                                    <label class="form-label" for="state">Zip</label>
-                                    <input class="form-input" [ngClass]="{'is-error': state.invalid && (zip.dirty || zip.touched)}" type="number" id="zip" name="zip" [ngModel]="step_content.zip" #zip="ngModel" placeholder="Zip" maxlength="5" size="5" pattern=".{5,5}" required>
+                                    <label for="state">Zip</label>
+                                    <input class="form-control" [ngClass]="{'is-error': state.invalid && (zip.dirty || zip.touched)}" type="number" id="zip" name="zip" [ngModel]="step_content.zip" #zip="ngModel" placeholder="Zip" maxlength="5" size="5" pattern=".{5,5}" required>
             
-                                    <input class="form-input" ng-value="from" type="text" name="dataFrom" [ngModel]="step_content.dataFrom" style="display:none" #name="ngModel">
-                                    </div>
+                                    <input class="form-control" ng-value="from" type="text" name="dataFrom" [ngModel]="step_content.dataFrom" style="display:none" #name="ngModel">
+                            </div>
                         </form>  
-                        <button class="btn btn-error" (click)="backStepHandle()">Back</button>           
-                        <button class="btn btn-success" [disabled]="f.invalid" (click)="nextStepHandle(f.value)">Next</button>
-                </div>
+                        <button class="btn btn-primary" (click)="backStepHandle()" style="margin-right: 10px;">Back</button>           
+                        <button class="btn btn-primary" [disabled]="f.invalid" (click)="nextStepHandle(f.value)">Next</button>
+                    </div>
                 </div>
             </ng-template>
 
@@ -82,13 +82,13 @@
                         <h5>{{step_content.title}}</h5> 
                         <form #f="ngForm">
                             <div class="form-group">
-                                <label class="form-label" for="weight">Weight</label>
-                                <input class="form-input" [ngClass]="{'is-error': weight.invalid && (weight.dirty || weight.touched)}" type="number" id="weight" name="weight" [ngModel]="step_content.weight" #weight="ngModel" placeholder="Weight" required>
+                                <label for="weight">Weight</label>
+                                <input class="form-control" [ngClass]="{'is-error': weight.invalid && (weight.dirty || weight.touched)}" type="number" id="weight" name="weight" [ngModel]="step_content.weight" #weight="ngModel" placeholder="Weight" required>
                             </div>
                         </form>     
-                        <button class="btn btn-error" (click)="backStepHandle()">Back</button>        
-                        <button class="btn btn-success" [disabled]="f.invalid" (click)="nextStepHandle(f.value)">Next</button>
-                </div>
+                        <button class="btn btn-primary" (click)="backStepHandle()" style="margin-right: 10px;">Back</button>        
+                        <button class="btn btn-primary" [disabled]="f.invalid" (click)="nextStepHandle(f.value)">Next</button>
+                    </div>
                 </div>
         </ng-template>
 
@@ -99,16 +99,16 @@
                         <h5>{{step_content.title}}</h5> 
                         <form #f="ngForm">
                             <div class="form-group">
-                                <label class="form-label" for="shippingOption">Shipping Option</label>
-                                <select name="val" [ngModel]="step_content.shippingOption" id="shippingOption" name="shippingOption" [ngClass]="{'is-error': shippingOption.invalid && (shippingOption.dirty || shippingOption.touched)}" #shippingOption="ngModel" required>
+                                <label  for="shippingOption">Shipping Option</label>
+                                <select class="form-control" name="val" [ngModel]="step_content.shippingOption" id="shippingOption" name="shippingOption" [ngClass]="{'is-error': shippingOption.invalid && (shippingOption.dirty || shippingOption.touched)}" #shippingOption="ngModel" required>
                                     <option [value]="1" selected="selected">Ground</option>
                                     <option [value]="2">Priority</option>
                                 </select>
                             </div>
                         </form>      
-                        <button class="btn btn-error" (click)="backStepHandle()">Back</button>       
-                        <button class="btn btn-success" [disabled]="f.invalid" (click)="calculateNextStepHandle(f.value)">Next</button>
-                </div>
+                        <button class="btn btn-primary" (click)="backStepHandle()" style="margin-right: 10px;">Back</button>       
+                        <button class="btn btn-primary" [disabled]="f.invalid" (click)="calculateNextStepHandle(f.value)">Next</button>
+                    </div>
                 </div>
         </ng-template>
 
@@ -117,12 +117,12 @@
                 <div appFormStep id='5'>
                     <div class="form-wrapper">
                         <h5>{{step_content.title}}</h5>   
-                        <label class="form-label" for="weight">Shipping Cost:</label>
-                        <input class="form-input" [ngModel]="step_content.shippingCost" disabled>
-                        <br>
-                        <button class="btn btn-error" (click)="backStepHandle()">Back</button>       
-                        <button class="btn btn-success" (click)="finishStepHandle()">Confirm</button>
-                </div>
+                        <label for="weight">Shipping Cost:</label>
+                        <input class="form-control" [ngModel]="step_content.shippingCost" disabled>
+                        
+                        <button class="btn btn-primary" (click)="backStepHandle()" style="margin-right: 10px;">Back</button>       
+                        <button class="btn btn-primary" (click)="finishStepHandle()">Confirm</button>
+                    </div>
                 </div>
         </ng-template>
 
