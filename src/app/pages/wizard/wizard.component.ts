@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { ShippingInfo } from 'src/app/shared/models/shipping-info';
+import { ShippingInfo, Address } from 'src/app/shared/models/shipping-info';
 import { AuthService } from 'src/app/core/authentication/auth.service';
 import { HttpService } from 'src/app/core/services/http.service';
+import { WizardMakerComponent } from 'src/app/shared/components/features/shipping-label-maker/wizard-maker.component';
+import { HeaderComponent } from 'src/app/shared/components/header/header.component';
 
 @Component({
   selector: 'app-wizard',
@@ -10,6 +12,7 @@ import { HttpService } from 'src/app/core/services/http.service';
   styleUrls: ['./wizard.component.css']
 })
 export class WizardComponent implements OnInit {
+  @ViewChild(HeaderComponent) header!: HeaderComponent;
 
   title = "Shipping Label Maker"
   
@@ -48,6 +51,10 @@ export class WizardComponent implements OnInit {
   
   get user() {
     return this.auth.getUserName();
+  }
+
+  get footerTitle() {
+    return 'Developed By Sergiy Koyev';
   }
 
   setFormData(formData:object) {
@@ -93,7 +100,7 @@ export class WizardComponent implements OnInit {
 
     this.step_form[step] = {
       ...this.step_form[step],
-      ...{shippingCost:shippingCost}
+      ...{shippingCost:Math.round(shippingCost)}
     }      
   }
 
