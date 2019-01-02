@@ -1,16 +1,20 @@
-<app-header 
-    [title]="title"
-    [user]="user"
-    (signOutAction)="signOut()">
+<div style="margin-top: 20px;">
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <app-header 
+          [title]="title"
+          [user]="user"
+          (signOutAction)="logOut()"></app-header>
+      </div>
+  </div>
 
-</app-header>
-
-<div class="col-md-6 offset-md-3 wizard">
-
-    <app-wizard-maker [wizardContext]="step_form"
-                    (nextAction)="setFormData($event)" 
-                    (calculateAction)="calculateShippingCost()" 
-                    (complete)="complete()">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 wizard">
+      <hr>
+      <app-wizard-maker [wizardContext]="step_form"
+                        (nextAction)="setFormData($event)" 
+                        (calculateAction)="calculateShippingCost()" 
+                        (complete)="complete()">
         <!-- Step 1 -->
         <ng-template let-step_content let-nextStepHandle="nextStepHandle">        
             <div appFormStep id='1'>
@@ -119,16 +123,22 @@
                         <h5>{{step_content.title}}</h5>   
                         <label for="weight">Shipping Cost:</label>
                         <input class="form-control" [ngModel]="step_content.shippingCost" disabled>
-                        
-                        <button class="btn btn-primary" (click)="backStepHandle()" style="margin-right: 10px;">Back</button>       
-                        <button class="btn btn-primary" (click)="finishStepHandle()">Confirm</button>
+
+                        <div style="margin-top:15px;">
+                            <button class="btn btn-primary" (click)="backStepHandle()" style="margin-right: 10px;">Back</button>       
+                            <button class="btn btn-primary" (click)="finishStepHandle()">Confirm</button>
+                        </div>
                     </div>
                 </div>
         </ng-template>
+      </app-wizard-maker>
+    </div>
+  </div>
 
-    </app-wizard-maker>
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <hr>
+        <app-footer [title]="footerTitle"></app-footer>
+      </div>
+  </div>
 </div>
-
-<app-footer
-    [title]="footerTitle">
-</app-footer>

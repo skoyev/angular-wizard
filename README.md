@@ -20,16 +20,16 @@ Step 5: Confirm Shipping Cost (calculation)
 
 ## Technologies/Packagies
 
-    "@angular/animations": "~7.1.0",
-    "@angular/common": "~7.1.0",
-    "@angular/compiler": "~7.1.0",
-    "@angular/core": "~7.1.0",
-    "@angular/forms": "~7.1.0",
-    "@angular/platform-browser": "~7.1.0",
-    "@angular/platform-browser-dynamic": "~7.1.0",
-    "@angular/router": "~7.1.0",
-    "core-js": "^2.5.4",
-    "rxjs": "~6.3.3",
+"@angular/animations"
+"@angular/common"
+"@angular/compiler"
+"@angular/core"
+"@angular/forms"
+"@angular/platform-browser"
+"@angular/platform-browser-dynamic"
+"@angular/router"
+"rxjs"
+"@ngrx/store"
 
 ## Development server
 

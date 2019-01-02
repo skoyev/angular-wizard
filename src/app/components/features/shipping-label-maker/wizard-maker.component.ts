@@ -10,7 +10,8 @@ import {
   EventEmitter
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormStepDirective } from 'src/app/shared/directives/form-step.directive';
+import { FormStepDirective } from '../../../shared/directives/form-step.directive';
+
 
 @Component({
   selector: 'app-wizard-maker',
@@ -64,6 +65,7 @@ export class WizardMakerComponent implements AfterContentInit {
   }  
 
   calculateNextStepHandle(value){
+    value.step = this.step;
     this.nextAction.emit(value)
     this.calculateAction.emit(value) 
     this.step++; 

@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../../../models/user';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../store/app.states';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @Input() user: User;
   @Input() title: string;
-  @Input() user: string;
   @Output() signOutAction = new EventEmitter<any>();
   
-  constructor(private router: Router) {}
-
-  ngOnInit() {}   
-  
+  constructor(private router: Router) {   
+  }
+            
+  ngOnInit() {
+  }
+            
   signOut(){
     this.signOutAction.emit()   
   }

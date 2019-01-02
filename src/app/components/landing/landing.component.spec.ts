@@ -1,23 +1,20 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from 'src/app/core/authentication/auth.service';
-import { AuthGuardService } from 'src/app/core/authentication/auth-guard';
-import { HttpService } from 'src/app/core/services/http.service';
-import { WizardComponent } from './wizard.component';
-import { HeaderComponent } from 'src/app/shared/components/header/header.component';
-import { StepFormSelectorComponent } from 'src/app/shared/components/features/step-form-selector/step-form-selector.component';
-import { WizardMakerComponent } from 'src/app/shared/components/features/shipping-label-maker/wizard-maker.component';
 import { Routes } from '@angular/router';
 import { DebugElement } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
-import { ShippingInfo, Address } from 'src/app/shared/models/shipping-info';
+import { LandingComponent } from './landing.component';
+import { LogInComponent } from '../log-in/log-in.component';
+import { HeaderComponent } from '../../shared/components/header/header.component';
+import { WizardMakerComponent } from '../features/shipping-label-maker/wizard-maker.component';
+import { AuthService } from '../../services/auth.service';
+import { AuthGuardService } from '../../services/auth-guard.service';
+import { Address, ShippingInfo } from '../../models/shipping-info';
 
 describe('WizardComponent', () => {
-  let wizard: WizardComponent;
-  let fixture: ComponentFixture<WizardComponent>;
+  let wizard: LandingComponent;
+  let fixture: ComponentFixture<LandingComponent>;
 
   let el: HTMLElement;
   let de: DebugElement;
@@ -27,24 +24,21 @@ describe('WizardComponent', () => {
       imports: [
         RouterTestingModule,
         BrowserModule,
-        AppRoutingModule,
         FormsModule,
         ReactiveFormsModule        
       ],
       declarations: [
-        LoginComponent,
-        WizardComponent,
+        LogInComponent,
+        LandingComponent,
         HeaderComponent,
         WizardMakerComponent,
-        StepFormSelectorComponent
       ],      
       providers: [
         AuthService, 
-        AuthGuardService,
-        HttpService
+        AuthGuardService,        
       ]
     }).compileComponents().then(() => {
-      fixture = TestBed.createComponent(WizardComponent);
+      fixture = TestBed.createComponent(LandingComponent);
       wizard = fixture.debugElement.componentInstance;
     });
   }));
@@ -118,11 +112,11 @@ describe('WizardComponent', () => {
   it(`should logout'`, () => {
     fixture.detectChanges();
     let h = fixture.debugElement.query(By.css('app-header'));
-    spyOn(wizard, 'signOut');
+    spyOn(wizard, 'logOut');
 
     let el = h.query(By.css('input[type="button"]')).nativeElement;
     el.click();
 
-    expect(wizard.signOut).toHaveBeenCalled();
+    expect(wizard.logOut).toHaveBeenCalled();
   });
 });

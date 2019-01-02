@@ -1,11 +1,9 @@
-<div class="col-md-6 offset-md-3">
     <div class="row">
         <div class="col-6">
             <h4>{{title}}</h4>            
         </div>
         <div class="col-6">
-            <span>Welcome, {{user}}</span>            
+            <span>Welcome, {{user?.firstName}}</span>            
             <input class="btn btn-primary" type="button" (click)="signOut()" value="Sign Out" style="float: right;">
         </div>
     </div>
-</div>

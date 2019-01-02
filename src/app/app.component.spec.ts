@@ -2,16 +2,12 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './pages/login/login.component';
-import { WizardComponent } from './pages/wizard/wizard.component';
-import { WizardMakerComponent } from './shared/components/features/shipping-label-maker/wizard-maker.component';
 import { HeaderComponent } from './shared/components/header/header.component';
-import { StepFormSelectorComponent } from './shared/components/features/step-form-selector/step-form-selector.component';
-import { AuthService } from './core/authentication/auth.service';
-import { AuthGuardService } from './core/authentication/auth-guard';
-import { HttpService } from './core/services/http.service';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { WizardMakerComponent } from './components/features/shipping-label-maker/wizard-maker.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,22 +15,19 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         BrowserModule,
-        AppRoutingModule,
         FormsModule,
         ReactiveFormsModule        
       ],
       declarations: [
         AppComponent,
-        LoginComponent,
-        WizardComponent,
+        LogInComponent,
         WizardMakerComponent,
-        HeaderComponent,
-        StepFormSelectorComponent        
+        WizardMakerComponent,
+        HeaderComponent        
       ],
       providers: [
         AuthService, 
-        AuthGuardService,
-        HttpService
+        AuthGuardService
       ],
     }).compileComponents();
   }));
